@@ -1,0 +1,54 @@
+<section>
+    <div class="card">
+        <div class="card_left">
+            <img src="\assets\img\contacto2.png">
+        </div>
+        <div class="card_rigth">
+            <h2 class="card_title">Contacto</h2>
+            <form novalidate class="form" #formMsj="ngForm">
+                <div class="form_name">
+                    <div class="form_field">
+                        <label class="form_label">Nombres</label>
+                        <input type="text" id="name" class="form_input" [(ngModel)]="data.nombres" name="nombre" #nombre="ngModel" pattern="[a-z A-Z]{3,70}$" required>
+                    </div>
+                    <div *ngIf="nombre.touched">
+                        <P *ngIf="nombre.errors?.pattern" class="alert">Nombre no valido</P>
+                        <p *ngIf="nombre.errors?.required" class="alert">Nombre requerido</p>
+                    </div>
+                    <div class="form_field">
+                        <label class="form_label">Apellidos</label>
+                        <input type="text" id="name" class="form_input" [(ngModel)]="data.apellidos" name="apellidos" #apellidos="ngModel" pattern="[a-z A-Z]{3,70}$" required>
+                    </div>
+                    <div *ngIf="apellidos.touched">
+                        <P *ngIf="apellidos.errors?.pattern" class="alert">Apellido no valido</P>
+                        <p *ngIf="apellidos.errors?.required" class="alert">Apellido requerido</p>
+                    </div>
+                </div>
+                <div class="form_field">
+                    <label class="form_label">Número telefonico</label>
+                    <input type="number" id="name" class="form_input" [(ngModel)]="data.telefono" name="telefono" #telefono="ngModel" pattern="[0-9]{7,11}$" required>
+                </div>
+                <div *ngIf="telefono.touched">
+                    <P *ngIf="telefono.errors?.pattern" class="alert">Teléfono no valido</P>
+                    <p *ngIf="telefono.errors?.required" class="alert">Teléfono requerido</p>
+                </div>
+                <div class="form_field">
+                    <label class="form_label">Correo electronico</label>
+                    <input type="email" id="name" class="form_input" [(ngModel)]="data.correo" name="correo" #correo="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                </div>
+                <div *ngIf="correo.touched">
+                    <P *ngIf="correo.errors?.pattern" class="alert">Correo no valido</P>
+                    <p *ngIf="correo.errors?.required" class="alert">Correo requerido</p>
+                </div>
+                <div class="form_field">
+                    <label class="form_label">Mensaje</label>
+                    <textarea class="form_textarea" name="mensaje" #mensaje="ngModel"  [(ngModel)]="data.mensaje" required></textarea>
+                </div>
+                <div *ngIf="mensaje.touched">
+                    <p *ngIf="mensaje.errors?.required" class="alert">Mensaje requerido</p>
+                </div>
+                <button type="button" class="form_submit"[disabled]="!formMsj.form.valid" (click)="formRegister() ; formMsj.reset()">Enviar</button>
+            </form>
+        </div>
+    </div>
+</section>
