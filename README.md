@@ -6,7 +6,7 @@
 
 About the project
 -------------
-Ejercicio autodidacta usando aplicando lazyload, routing, Form template Driven con validaciones.
+Ejercicio autodidacta aplicando lazyload, routing, Form template Driven con validaciones.
 
 
 About Angular
